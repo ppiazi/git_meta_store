@@ -1,0 +1,9 @@
+#!/bin/sh
+# when running the hook, cwd is the top level of working tree
+
+# update (or store if failed)
+python $(dirname "$0")/git_meta_store.py -u ||
+exit 1
+
+# remember to add the updated cache file
+git add .git_meta_file
